@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Multiplayer Connection Test</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Multiplayer Test</h1>
+      <span id="status">Connecting...</span>
+    </header>
+
+    <section id="lobby" class="panel">
+      <h2>Play Together</h2>
+      <p>Create a room or join your friend's room.</p>
+
+      <button id="createBtn" disabled>Create Room</button>
+
+      <div class="join">
+        <input id="roomInput" maxlength="6"
+               placeholder="Room code" autocomplete="off">
+        <button id="joinBtn" disabled>Join Room</button>
+      </div>
+    </section>
+
+    <section id="game" class="panel hidden">
+      <div class="room-header">
+        <div>
+          <small>ROOM CODE</small>
+          <h2 id="roomCode">------</h2>
+        </div>
+        <button id="copyBtn">Copy Code</button>
+      </div>
+
+      <div id="messages" class="messages"></div>
+
+      <form id="chatForm">
+        <input id="messageInput" maxlength="500"
+               placeholder="Type a message..."
+               autocomplete="off" required>
+        <button type="submit">Send</button>
+      </form>
+
+      <p class="hint">Messages update approximately every second.</p>
+    </section>
+
+    <p id="notice" role="status"></p>
+  </main>
+</body>
+</html>
